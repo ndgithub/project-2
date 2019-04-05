@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: true
      },
-     user_id: {
+     user_ID: {
        type: DataTypes.STRING,
        allowNull: false
      }
