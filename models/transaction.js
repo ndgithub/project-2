@@ -20,15 +20,18 @@ module.exports = function(sequelize, DataTypes) {
        allowNull: false
      }
 
-  });
+  })
+
+  transaction.associate = function(models) {
+    transaction.belongsTo(models.user, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+  
   return transaction;
 };
 
-transaction.associate = function(models) {
-  transaction.belongsTo(models.user, {
-    foreignKey: {
-      allowNull: false
-    }
-  });
-};
+
 
