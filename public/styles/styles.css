@@ -1,3 +1,17 @@
 .list-group-item {
   line-height: 2.5;
 }
+.middle-background {
+
+  height: 500px;
+  background: url("../images/middle-background.jpg");
+}
+.main-text {
+  color: white;
+}
+.login-btn {
+  border: 1px solid white!important;
+}
+.middle-row {
+  margin-top: 5%!important;
+}
