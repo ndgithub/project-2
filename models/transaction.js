@@ -20,14 +20,14 @@ module.exports = function(sequelize, DataTypes) {
 
   });
 
-  Transaction.associate = function(models) {
-    Transaction.belongsTo(models.User, {
-      foreignKey: {
-        allowNull: false
+  // Transaction.associate = function(models) {
+  //   Transaction.belongsTo(models.User, {
+  //     foreignKey: {
+  //       allowNull: false
 
-      }
-    });
-  };
+  //     }
+  //   });
+  // };
   return Transaction;
 };
 
