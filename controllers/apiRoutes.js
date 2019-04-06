@@ -2,13 +2,19 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Get all examples
-  app.get("/api/:id", function(req, res) {
-    db.transaction.findAll(
+  app.get("/api/transactions/:id", function(req, res) {
+    db.Transaction.findAll(
     {
       where: {
         user_ID: req.params.id
       }
     }).then(function(results) {
+      res.json(results);
+    });
+  });
+
+  app.get("/api/users", function(req, res) {
+    db.User.findAll().then(function(results) {
       res.json(results);
     });
   });
@@ -21,13 +27,10 @@ module.exports = function(app) {
   });
 
 
-  app.get("/api", function(req, res) {
-    console.log("testing get")
-   res.json("test");
-  });
+  
 
   // post transactions
-  app.post("/api/transaction", function(req, res) {
+  app.post("/api/transactions", function(req, res) {
     console.log("req.body");
     db.Transaction.create({
       user_ID: req.body.user_ID,
@@ -42,18 +45,18 @@ module.exports = function(app) {
 
 
 
-  app.post("/api/user", function(req, res) {
-    console.log(req.body);
-    db.User.create({
-      firstName: req.body.firstName,
-    lastName: req.body.lastName,
-    email: req.body.email,
-   uuid: req.body.uuid,
-    }).then(function(results) {
-      res.json(results) 
-    })
+  // app.post("/api/user", function(req, res) {
+  //   console.log(req.body);
+  //   db.User.create({
+  //     firstName: req.body.firstName,
+  //   lastName: req.body.lastName,
+  //   email: req.body.email,
+  //  uuid: req.body.uuid,
+  //   }).then(function(results) {
+  //     res.json(results) 
+  //   })
     
-  });
+  // });
 
 }
 
