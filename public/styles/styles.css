@@ -25,4 +25,18 @@
 }
 .align {
   margin-left: 240px;
+
+/*Main html CSS */
+
+.header {
+  background-color: #b0bec5;
+  height: 120px;
+}
+
+#name {
+  margin: 0;
+  padding: 0;
+  padding-top: 4rem;
+  padding-left: 1rem;
+  color: #fff;
 }
