@@ -1,5 +1,5 @@
-module.exports = function(sequelize, DataTypes) {
-  var transaction = sequelize.define("transactions", {
+module.exports = function (sequelize, DataTypes) {
+  var Transaction = sequelize.define("transaction", {
     type: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -14,22 +14,22 @@ module.exports = function(sequelize, DataTypes) {
     categories: {
       type: DataTypes.STRING,
       allowNull: true
-     },
-     user_ID: {
-       type: DataTypes.STRING,
-       allowNull: false
-     }
+    },
+    user_ID: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
 
   });
 
-  transaction.associate = function(models) {
-    transaction.belongsTo(models.user, {
+  Transaction.associate = function (models) {
+    transaction.belongsTo(models.User, {
       foreignKey: {
         allowNull: false
       }
     });
   };
-  return transaction;
+  return Transaction;
 };
 
 
