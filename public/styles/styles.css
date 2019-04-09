@@ -1,3 +1,42 @@
 .list-group-item {
   line-height: 2.5;
 }
+.middle-background {
+
+  height: 605px;
+  background: url("../images/middle-background.jpg");
+}
+.main-text {
+  color: white;
+}
+.login-btn {
+  border: 1px solid white!important;
+}
+.middle-row {
+  margin-top: 5%!important;
+}
+.hidden {
+  display: none;
+}
+.preloader-wrapper {
+  margin-top: -65px;
+  margin-bottom: 30px;
+  margin-left: 70px;
+}
+.align {
+  margin-left: 240px;
+
+/*Main html CSS */
+
+.header {
+  background-color: #b0bec5;
+  height: 120px;
+}
+
+#name {
+  margin: 0;
+  padding: 0;
+  padding-top: 4rem;
+  padding-left: 1rem;
+  color: #fff;
+}

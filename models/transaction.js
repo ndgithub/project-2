@@ -1,11 +1,14 @@
+<<<<<<< HEAD
 module.exports = function (sequelize, DataTypes) {
   var Transaction = sequelize.define("transaction", {
+=======
+module.exports = function(sequelize, DataTypes) {
+  var Transaction = sequelize.define("Transaction", {
+>>>>>>> ce30718ddf88b439aedd3ef68861c8a69c2a5906
     type: {
       type: DataTypes.STRING,
       allowNull: false,
-      validate: {
-        len: [10]
-      }
+      
     },
     amount: {
       type: DataTypes.INTEGER,
@@ -22,6 +25,7 @@ module.exports = function (sequelize, DataTypes) {
 
   });
 
+<<<<<<< HEAD
   Transaction.associate = function (models) {
     transaction.belongsTo(models.User, {
       foreignKey: {
@@ -29,6 +33,16 @@ module.exports = function (sequelize, DataTypes) {
       }
     });
   };
+=======
+  // Transaction.associate = function(models) {
+  //   Transaction.belongsTo(models.User, {
+  //     foreignKey: {
+  //       allowNull: false
+
+  //     }
+  //   });
+  // };
+>>>>>>> ce30718ddf88b439aedd3ef68861c8a69c2a5906
   return Transaction;
 };
 

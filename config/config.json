@@ -1,10 +1,16 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "root",
     "database": "bank_db",
     "host": "127.0.0.1",
     "port": 8889,
+=======
+    "password": null,
+    "database": "bank_db",
+    "host": "localhost",
+>>>>>>> ce30718ddf88b439aedd3ef68861c8a69c2a5906
     "dialect": "mysql"
   },
   "test": {

@@ -1,8 +1,80 @@
+document.addEventListener("DOMContentLoaded", function() {
+  var modals = document.querySelectorAll(".modal");
+  M.Modal.init(modals);
+  });
+
+  $("#new-account").on("submit", function(event) {
+    event.preventDefault();
+    checkEmail();
+
+    //$(".uk-search-input").val("");
+  });
+
+
+  function checkEmail() {
+
+
+    // set endpoint and your access key
+      var access_key = 'd7776dbdfffeef43337896d2150a5ce9';
+      var email_address = $("#account-email").val().trim();
+
+      // verify email address via AJAX call
+      $.ajax({
+          url: 'http://apilayer.net/api/check?access_key=' + access_key + '&email=' + email_address,   
+          dataType: 'jsonp',
+          success: function(json) {
+
+          // Access and use your preferred validation result objects
+          //console.log(json);
+          //console.log(json.format_valid);
+          //console.log(json.smtp_check);
+          //console.log(json.score);
+                      
+            if(json.format_valid == true && json.smtp_check == true) {
+              setSpinner();
+              console.log("valid email");
+            }else {
+              $("#not-valid").removeClass("hidden");
+            }
+          }
+      });
+    };
+
+
+    function setSpinner() {
+      $(".remove-button").addClass("hidden");
+      console.log("Should be hidden");
+      $(".preloader-wrapper").addClass("active");
+      setTimeout(function() {
+        $(".preloader-wrapper").removeClass("active");
+        $("#new-account").addClass("hidden");
+        $(".modal-header").addClass("hidden");
+        $(".account-created").removeClass("hidden");
+        addToDB();
+      }, 2000);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+//var $exampleText = $("#example-text");
+//var $exampleDescription = $("#example-description");
+//var $submitBtn = $("#submit");
+//var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
 var API = {

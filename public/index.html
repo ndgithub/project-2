@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles/styles.css" media="screen" title="no title">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <title>Bank</title>
+</head>
+<body>
+    <nav class="nav-extended blue-grey lighten-3 z-depth-5">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo logo">Bootcamp Bank</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="sass.html"></a></li>
+            <li><a href="badges.html"></a></li>
+            <li><a href="collapsible.html"></a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="middle-background">
+    <div class="row">
+        <div class="col s6 m3 middle-row">
+            <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+                <form>
+                    <div class="input-field col s12">
+                        <input placeholder="Username" id="username" type="text" class="validate">
+                        <label for="username"></label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input placeholder="Password" id="password" type="text" class="validate">
+                        <label for="password"></label>
+                    </div>
+                    <button class="btn-flat blue-grey darken-1 login-btn" type="submit">Login</button>
+                </form>
+            </div>
+                <div class="card-action">
+                    <a href="#" class="modal-trigger" data-target="modal-signup">Open an Account</a>
+                </div>
+            </div>
+        </div>
+        <div class="col s6 m6 main-text middle-row">
+            <h2 class="flow-text">Life changes. Now you bank account can keep up.</h2>
+            <p class="flow-text">Bootcamp Bank Advantage Banking helps you stay in sync with your needs today and tomorrow.
+            </p>
+        </div>
+        
+    </div>
+    <div class="row">
+            <div class="col s6 m3">
+              <div class="z-depth-5 card light-blue darken-3">
+                <div class="card-action">
+                  <a href="#" class="modal-trigger" data-target="modal-locations"><i class="material-icons left">location_on</i>Find your closest finacial center or ATM</a>
+                </div>
+              </div>
+            </div>
+          </div>
+</div>
+
+
+    <!-- Sign Up Modal-->
+    <div id="modal-signup" class="modal">
+            <div class="modal-content">
+                <h4 class="center-align text-darken-3 modal-header">Create your Account</h4><br />
+                <div class="account-created hidden">
+                    <h4 class="center-align text-darken-3">Your Account Has Been Created!</h4><br />
+                    <button class="align btn-large waves-effect waves-light blue-grey darken-1" type="submit" name="action">Go To Account</button>
+                </div>
+                <div class="row">
+                        <form id="new-account" class="col s12">
+                          <div class="row">
+                            <div class="input-field col s6">
+                              <input id="first_name" type="text" class="validate">
+                              <label for="first_name">First Name</label>
+                            </div>
+                            <div class="input-field col s6">
+                              <input id="last_name" type="text" class="validate">
+                              <label for="last_name">Last Name</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                                <div class="input-field col s12">
+                                  <input id="account-email" type="email" class="validate">
+                                  <label for="email">Email</label>
+                                  <div id="not-valid" class="hidden">
+                                      <p class="red-text text-darken-4">Must Use A Valid Email</p>
+                                  </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="input-field col s12">
+                                      <input id="username" type="text" class="validate">
+                                      <label for="username">Username</label>
+                                    </div>
+                                </div>
+                          <div class="row">
+                            <div class="input-field col s12">
+                              <input id="password" type="password" class="validate">
+                              <label for="password">Password</label>
+                            </div>
+                          </div>
+                          <div class="row">
+                                <div class="input-field col s12">
+                                  <input id="deposit" type="text" class="validate">
+                                  <label for="deposit">How much would you like to desposit?</label>
+                                </div>
+                              </div>
+                              <div class="remove-button">
+                          <button class="btn-large waves-effect waves-light blue-grey darken-1" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
+                        </form>
+                      </div>
+            </div>
+            <div class="preloader-wrapper">
+                    <div class="spinner-layer spinner-blue-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+        </div>
+
+            <!-- Location Modal-->
+    <div id="modal-locations" class="modal">
+            <div class="modal-content center-align">
+                <h3 class="modal-header logout-message text-darken-3">Locations coming soon...</h3>
+                <br>
+                <h5 class="modal-header logout-message text-darken-3">Signup to receive updates.</h5>
+                <form>
+                        <div class="row">
+                                <div class="input-field col s12">
+                                  <input id="email" type="email" class="validate">
+                                  <label for="email">Email</label>
+                                </div>
+                            </div>
+                <button class="btn-large waves-effect waves-light blue-grey darken-1" type="submit" name="action">Submit
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+
+            </div>
+        </div>
+
+
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="js/index.js" type="text/javascript"></script>
+
+</body>
+</html>
