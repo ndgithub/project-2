@@ -115,7 +115,7 @@
                                   <label for="deposit">How much would you like to desposit?</label>
                                 </div>
                               </div>
-                          <button class="btn-large waves-effect waves-light blue-grey darken-1" type="submit" name="action">Submit
+                          <button class="btn-large waves-effect waves-light blue-grey darken-1" id ="submit"type="submit" name="action">Submit
                                 <i class="material-icons right">send</i>
                             </button>
                         </form>
@@ -153,6 +153,25 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="js/index.js" type="text/javascript"></script>
+
+    <script>
+    $("#submit").on("click", function () {
+        $.ajax({
+          type: "POST",
+          url: "index.html",
+          data: {
+            firstName: $("#first_name").val().trim(),
+            lastName: $("#last_name").val().trim(),
+            email: $("#email").val().trim(),
+            username = $("#username").val().trim(),
+            password = $("#password").val().trim(),
+            deposit = $("#deposit").val().trim()
+          },
+          success: success,
+          dataType: dataType
+        });
+    });
+    </script>
 
 </body>
 </html>
