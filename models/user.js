@@ -1,18 +1,12 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define("User", {
-    // id: DataTypes.INTEGER,
-  firstName: DataTypes.STRING,
-  lastName: DataTypes.STRING,
-  email: DataTypes.STRING,
-  uuid: DataTypes.STRING,
-  password: DataTypes.STRING
-});
-
-  // User.associate = function(models) {
-  //   User.hasMany(models.Transaction, {
-  //     onDelete: "cascade"
-  //   });
-  // }
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING,
+    username: DataTypes.STRING,
+    deposit: DataTypes.STRING,
+  });
 
   return User;
 };
