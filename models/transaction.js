@@ -1,9 +1,9 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var Transaction = sequelize.define("Transaction", {
     type: {
       type: DataTypes.STRING,
       allowNull: false,
-      
+
     },
     amount: {
       type: DataTypes.INTEGER,
@@ -12,11 +12,11 @@ module.exports = function(sequelize, DataTypes) {
     categories: {
       type: DataTypes.STRING,
       allowNull: true
-     },
-     user_ID: {
-       type: DataTypes.STRING,
-       allowNull: false
-     }
+    },
+    user_ID: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
 
   });
 
