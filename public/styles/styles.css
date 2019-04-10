@@ -3,7 +3,7 @@
 }
 .middle-background {
 
-  height: 500px;
+  height: 605px;
   background: url("../images/middle-background.jpg");
 }
 .main-text {
@@ -15,6 +15,16 @@
 .middle-row {
   margin-top: 5%!important;
 }
+.hidden {
+  display: none;
+}
+.preloader-wrapper {
+  margin-top: -65px;
+  margin-bottom: 30px;
+  margin-left: 70px;
+}
+.align {
+  margin-left: 240px;
 
 /*Main html CSS */
 
