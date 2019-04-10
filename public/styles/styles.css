@@ -25,7 +25,10 @@
 }
 .align {
   margin-left: 240px;
-
+}
+.account-created {
+  background-color: #b6f7a6d8;
+}
 /*Main html CSS */
 
 .header {

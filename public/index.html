@@ -64,10 +64,12 @@
     <!-- Sign Up Modal-->
     <div id="modal-signup" class="modal">
             <div class="modal-content">
-                <h4 class="center-align text-darken-3 modal-header">Create your Account</h4><br />
+                <h4 class="center-align text-darken-3 modal-header">Create your Account</h4><br/>
                 <div class="account-created hidden">
-                    <h4 class="center-align text-darken-3">Your Account Has Been Created!</h4><br />
-                    <button class="align btn-large waves-effect waves-light blue-grey darken-1" type="submit" name="action">Go To Account</button>
+                    <h4 class="center-align text-darken-3 account-created">Your Account Has Been Created!</h4><br>
+
+                    <h5 class="center-align account-login-modal">Login To View Account</h5>
+                   <!-- <button class="align btn-large waves-effect waves-light blue-grey darken-1" type="submit" name="action">Go To Account</button> -->
                 </div>
                 <div class="row">
                         <form id="new-account" class="col s12">
@@ -135,19 +137,35 @@
                 <h3 class="modal-header logout-message text-darken-3">Locations coming soon...</h3>
                 <br>
                 <h5 class="modal-header logout-message text-darken-3">Signup to receive updates.</h5>
-                <form>
-                        <div class="row">
-                                <div class="input-field col s12">
-                                  <input id="email" type="email" class="validate">
-                                  <label for="email">Email</label>
+                <form id="new-email">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="account-email" type="email" class="validate">
+                                <label for="email">Email</label>
+                                <div id="not-valid" class="hidden">
+                                    <p class="red-text text-darken-4">Must Use A Valid Email</p>
                                 </div>
                             </div>
-                <button class="btn-large waves-effect waves-light blue-grey darken-1" type="submit" name="action">Submit
-                        <i class="material-icons right">send</i>
-                    </button>
+                        </div>
+                        <div class="remove-button">
+                            <button class="btn-large waves-effect waves-light blue-grey darken-1" type="submit" name="action">Submit
+                                <i class="material-icons right">send</i>
+                            </button>
+                        </div>
                 </form>
 
             </div>
+            <div class="preloader-wrapper">
+                    <div class="spinner-layer spinner-blue-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
         </div>
 
 

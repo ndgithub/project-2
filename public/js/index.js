@@ -10,6 +10,13 @@ document.addEventListener("DOMContentLoaded", function() {
     //$(".uk-search-input").val("");
   });
 
+  $(".new-email").on("submit", function(event) {
+    event.preventDefault();
+    checkEmail();
+
+    //$(".uk-search-input").val("");
+  });
+
 
   function checkEmail() {
 
