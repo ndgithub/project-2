@@ -10,13 +10,13 @@
     <title>Bank</title>
 </head>
 <body>
-    <nav class="nav-extended blue-grey lighten-3 z-depth-5">
+    <nav class="nav-extended z-depth-5">
         <div class="nav-wrapper">
-            <a href="#" class="brand-logo logo">Bootcamp Bank</a>
+            <a href="#" class="center brand-logo logo">Bootcamp Bank</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="sass.html"></a></li>
-            <li><a href="badges.html"></a></li>
-            <li><a href="collapsible.html"></a></li>
+            <li><a href="#"><i class="icon material-icons">account_balance</i></a></li>
+            <li><a href="#"></a></li>
+            <li><a href="#"></a></li>
             </ul>
         </div>
     </nav>
@@ -31,7 +31,7 @@
                         <label for="username"></label>
                     </div>
                     <div class="input-field col s12">
-                        <input placeholder="Password" id="password" type="text" class="validate">
+                        <input placeholder="Password" id="password" type="password" class="validate">
                         <label for="password"></label>
                     </div>
                     <button class="btn-flat blue-grey darken-1 login-btn" type="submit">Login</button>
@@ -43,7 +43,7 @@
             </div>
         </div>
         <div class="col s6 m6 main-text middle-row">
-            <h2 class="flow-text">Life changes. Now you bank account can keep up.</h2>
+            <h2 class="flow-text">Life changes. Now your bank account can keep up.</h2>
             <p class="flow-text">Bootcamp Bank Advantage Banking helps you stay in sync with your needs today and tomorrow.
             </p>
         </div>
@@ -65,11 +65,11 @@
     <div id="modal-signup" class="modal">
             <div class="modal-content">
                 <h4 class="center-align text-darken-3 modal-header">Create your Account</h4><br/>
-                <div class="account-created hidden">
+                <div class="account-created hidden center-align">
                     <h4 class="center-align text-darken-3 account-created">Your Account Has Been Created!</h4><br>
 
                     <h5 class="center-align account-login-modal">Login To View Account</h5>
-                   <!-- <button class="align btn-large waves-effect waves-light blue-grey darken-1" type="submit" name="action">Go To Account</button> -->
+                    <a href="#!" class="modal-close"><button class="close btn-small waves-effect waves-light blue-grey darken-1" type="submit" name="action">Close</button></a>
                 </div>
                 <div class="row">
                         <form id="new-account" class="col s12">
@@ -134,38 +134,42 @@
             <!-- Location Modal-->
     <div id="modal-locations" class="modal">
             <div class="modal-content center-align">
-                <h3 class="modal-header logout-message text-darken-3">Locations coming soon...</h3>
+                <h3 class="modal-header-news logout-message text-darken-3">Locations coming soon...</h3>
                 <br>
-                <h5 class="modal-header logout-message text-darken-3">Signup to receive updates.</h5>
+                <h5 class="modal-header-news logout-message text-darken-3">Signup to receive updates.</h5>
+                    <div class="email-added hidden">
+                        <h4 class="center-align text-darken-3 account-created">You Have Been Added!</h4><br>
+                        <a href="#!" class="modal-close"><button class="btn-small waves-effect waves-light blue-grey darken-1" type="submit" name="action">Close</button></a>
+                    </div>
                 <form id="new-email">
                     <div class="row">
                         <div class="input-field col s12">
-                            <input id="account-email" type="email" class="validate">
+                            <input id="newsletter-email" type="email" class="validate">
                                 <label for="email">Email</label>
-                                <div id="not-valid" class="hidden">
+                                <div id="not-valid-newsletter" class="hidden">
                                     <p class="red-text text-darken-4">Must Use A Valid Email</p>
                                 </div>
                             </div>
                         </div>
-                        <div class="remove-button">
+                        <div class="remove-button-news">
                             <button class="btn-large waves-effect waves-light blue-grey darken-1" type="submit" name="action">Submit
                                 <i class="material-icons right">send</i>
                             </button>
                         </div>
                 </form>
+                <div class="preloader-wrapper newsletter-preloader">
+                        <div class="spinner-layer spinner-blue-only">
+                          <div class="circle-clipper left">
+                            <div class="circle"></div>
+                          </div><div class="gap-patch">
+                            <div class="circle"></div>
+                          </div><div class="circle-clipper right">
+                            <div class="circle"></div>
+                          </div>
+                        </div>
+                      </div>
 
             </div>
-            <div class="preloader-wrapper">
-                    <div class="spinner-layer spinner-blue-only">
-                      <div class="circle-clipper left">
-                        <div class="circle"></div>
-                      </div><div class="gap-patch">
-                        <div class="circle"></div>
-                      </div><div class="circle-clipper right">
-                        <div class="circle"></div>
-                      </div>
-                    </div>
-                  </div>
         </div>
 
 
