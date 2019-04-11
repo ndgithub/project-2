@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="./styles/styles.css">
     <title>Document</title>
 </head>
+
 <body>
     <div class="header">
         <h4 id="name">Bootcamp Bank</h4>
@@ -17,7 +19,7 @@
         <li class="tab col s4"><a class="active" href="#home">Home</a></li>
         <li class="tab col s4"><a href="#deposit">Deposit</a></li>
         <li class="tab col s4"><a href="#withdrawal">Withdrawal</a></li>
-      </ul>
+    </ul>
     <div id="home" class="col s12">
         <h3 id="account">Account Summary</h3>
         <div class="account-summary">
@@ -33,20 +35,20 @@
             <h1 id="deposit">Deposit</h1>
             <form class="col s12">
                 <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="$1,000,000" id="deposit-amount" type="text">
-                    <label for="deposit-amount">How much do you want to deposit?</label>
-                </div>
-                <div class="input-field col s12">
-                    <input id="deposit-password" type="password" class="validate">
-                    <label for="deposit-password">Account password.</label>
-                </div>
+                    <div class="input-field col s12">
+                        <input placeholder="$1,000,000" id="deposit-amount" type="text">
+                        <label for="deposit-amount">How much do you want to deposit?</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="deposit-password" type="password" class="validate">
+                        <label for="deposit-password">Account password.</label>
+                    </div>
                 </div>
                 <div class="row">
-                <div class="input-field col s12">
-                    <input id="deposit-email" type="email" class="validate">
-                    <label for="deposit-email">Please enter your email for receipt.</label>
-                </div>
+                    <div class="input-field col s12">
+                        <input id="deposit-email" type="email" class="validate">
+                        <label for="deposit-email">Please enter your email for receipt.</label>
+                    </div>
                 </div>
             </form>
         </div>
@@ -56,20 +58,20 @@
         <div class="row">
             <form class="col s12">
                 <div class="row">
-                <div class="input-field col s12">
-                    <input placeholder="$1,000,000" id="withdrawal-amount" type="text">
-                    <label for="withdrawal-amount">How much do you want to Withdraw?</label>
-                </div>
-                <div class="input-field col s12">
-                    <input id="withdrawal-password" type="password" class="validate">
-                    <label for="withdrawal-password">Account password.</label>
-                </div>
+                    <div class="input-field col s12">
+                        <input placeholder="$1,000,000" id="withdrawal-amount" type="text">
+                        <label for="withdrawal-amount">How much do you want to Withdraw?</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input id="withdrawal-password" type="password" class="validate">
+                        <label for="withdrawal-password">Account password.</label>
+                    </div>
                 </div>
                 <div class="row">
-                <div class="input-field col s12">
-                    <input id="withdrawal-email" type="email" class="validate">
-                    <label for="withdrawal-email">Please enter your email for receipt.</label>
-                </div>
+                    <div class="input-field col s12">
+                        <input id="withdrawal-email" type="email" class="validate">
+                        <label for="withdrawal-email">Please enter your email for receipt.</label>
+                    </div>
                 </div>
             </form>
         </div>
@@ -80,10 +82,13 @@
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script>
-        var elem = document.querySelector('.tabs'); 
+        var elem = document.querySelector('.tabs');
         var instance = M.Tabs.init(elem, {});
+
+        console.log(localStorage.getItem('username'));
     </script>
 </body>
+
 </html>
