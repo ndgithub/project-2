@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
   var modals = document.querySelectorAll(".modal");
   M.Modal.init(modals);
   });
+  var instance = M.Modal.getInstance(".modal");
 
   $("#new-account").on("submit", function(event) {
     event.preventDefault();
@@ -10,18 +11,16 @@ document.addEventListener("DOMContentLoaded", function() {
     //$(".uk-search-input").val("");
   });
 
-  $(".new-email").on("submit", function(event) {
+  $("#new-email").on("submit", function(event) {
     event.preventDefault();
-    checkEmail();
+    checkNewsletterEmail();
 
     //$(".uk-search-input").val("");
   });
 
 
   function checkEmail() {
-
-
-    // set endpoint and your access key
+      // set endpoint and your access key
       var access_key = 'd7776dbdfffeef43337896d2150a5ce9';
       var email_address = $("#account-email").val().trim();
 
@@ -32,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function() {
           success: function(json) {
 
           // Access and use your preferred validation result objects
-          //console.log(json);
+          console.log(json);
           //console.log(json.format_valid);
           //console.log(json.smtp_check);
           //console.log(json.score);
@@ -42,6 +41,33 @@ document.addEventListener("DOMContentLoaded", function() {
               console.log("valid email");
             }else {
               $("#not-valid").removeClass("hidden");
+            }
+          }
+      });
+    };
+
+    function checkNewsletterEmail() {
+      // set endpoint and your access key
+      var access_key = 'd7776dbdfffeef43337896d2150a5ce9';
+      var email_address = $("#newsletter-email").val().trim();
+
+      // verify email address via AJAX call
+      $.ajax({
+          url: 'http://apilayer.net/api/check?access_key=' + access_key + '&email=' + email_address,   
+          dataType: 'jsonp',
+          success: function(json) {
+
+          // Access and use your preferred validation result objects
+          console.log(json);
+          //console.log(json.format_valid);
+          //console.log(json.smtp_check);
+          //console.log(json.score);
+                      
+            if(json.format_valid == true && json.smtp_check == true) {
+              setSpinnerNewsletter();
+              console.log("valid email");
+            }else {
+              $("#not-valid-newsletter").removeClass("hidden");
             }
           }
       });
@@ -57,8 +83,20 @@ document.addEventListener("DOMContentLoaded", function() {
         $("#new-account").addClass("hidden");
         $(".modal-header").addClass("hidden");
         $(".account-created").removeClass("hidden");
-        addToDB();
+        //addToDB();
       }, 2000);
+    }
+
+    function setSpinnerNewsletter() {
+      $(".remove-button-news").addClass("hidden");
+      console.log("Should be hidden");
+      $(".newsletter-preloader").addClass("active");
+      setTimeout(function() {
+        $(".newsletter-preloader").removeClass("active");
+        $("#new-email").addClass("hidden");
+        $(".modal-header-news").addClass("hidden");
+        $(".email-added").removeClass("hidden");
+      }, 1000);
     }
 
 
@@ -112,13 +150,13 @@ var API = {
   }
 };
 
-CREATE table transactions(
-  id INT AUTO_INCREMENT NOT NULL,
-  type VARCHAR(50) NOT NULL,
-  amount INT(10) NOT NULL,
-  categories VARCHAR(50),
-  user_ID INT(10) NOT NULL
-);
+// CREATE table transactions(
+//   id INT AUTO_INCREMENT NOT NULL,
+//   type VARCHAR(50) NOT NULL,
+//   amount INT(10) NOT NULL,
+//   categories VARCHAR(50),
+//   user_ID INT(10) NOT NULL
+// );
 
 
 var transactionsArray = [

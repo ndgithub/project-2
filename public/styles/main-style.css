@@ -1,0 +1,37 @@
+.tab {
+    width: 33%;
+}
+
+#home,
+#deposit,
+#withdrawal  {
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 3rem;
+    padding: 2rem;
+    border: 2px solid black;
+
+}
+
+.horizontal {
+    margin-bottom: 7rem;
+    margin-top: 2rem;
+}
+
+.tabs .tab a{
+    color:#000;
+} /*Black color to the text*/
+
+.tabs .tab a:hover {
+    background-color:#eee;
+    color:#000;
+} /*Text color on hover*/
+
+.tabs .tab a.active .tab {
+    background-color:#888;
+    color:#000;
+} /*Background and text color when a tab is active*/
+
+.tabs .indicator {
+    background-color:#000;
+} /*Color of underline*/

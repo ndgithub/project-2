@@ -23,23 +23,39 @@
   margin-bottom: 30px;
   margin-left: 70px;
 }
+.newsletter-preloader {
+  margin-top: -1px;
+  margin-bottom: 30px;
+  margin-left: -5px;
+}
 .align {
   margin-left: 240px;
 }
 .account-created {
-  background-color: #b6f7a6d8;
+  background-color: #d4f7cc;
+}
+.close {
+  margin-top: 30px;
+}
+#username, #password {
+  color: white!important;
+}
+.nav-extended {
+  background-color: rgb(92, 92, 92)!important;
+}
+.icon {
+  font-size: 50px!important;
 }
 /*Main html CSS */
 
 .header {
-  background-color: #b0bec5;
-  height: 120px;
+  background-color: rgb(92, 92, 92);
+  height: 90px;
 }
-
 #name {
   margin: 0;
   padding: 0;
-  padding-top: 4rem;
-  padding-left: 1rem;
+  padding-top: 2.2rem;
+  text-align: center;
   color: #fff;
 }

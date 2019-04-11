@@ -8,25 +8,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/main-style.css">
-    <title>Document</title>
+    <title>Home Page</title>
 </head>
 <body>
     <div class="header">
         <h4 id="name">Bootcamp Bank</h4>
     </div>
     <ul id="tabs-swipe-demo" class="tabs">
-        <li class="tab col s4"><a class="active" href="#home">Home</a></li>
-        <li class="tab col s4"><a href="#deposit">Deposit</a></li>
-        <li class="tab col s4"><a href="#withdrawal">Withdrawal</a></li>
+        <li class="tab col s4" ><a class="active" href="#home">Home</a></li>
+        <li class="tab col s4" ><a href="#deposit">Deposit</a></li>
+        <li class="tab col s4" ><a href="#withdrawal">Withdrawal</a></li>
     </ul>
     <div id="home" class="col s12">
-        <h3>Welcome, firstname lastname</h3>
-        <hr>
+        <h3 id="welcome">Welcome, firstname lastname</h3>
+        <hr class="horizontal">
         <h3 id="account">Account Summary</h3>
         <div class="account-summary">
             Insert account summary here
         </div>
-        <hr>
+        <hr class="horizontal">
         <h3 class="transaction">Transaction History</h3>
         <div class="transaction-history">
             Insert transaction history here
@@ -34,16 +34,12 @@
     </div>
     <div id="deposit" class="col s12">
         <div class="row">
-            <h1 id="deposit">Deposit</h1>
+            <h1 id="deposit-title">Deposit</h1>
             <form class="col s12">
                 <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="$1,000,000" id="deposit-amount" type="text">
                     <label for="deposit-amount">How much do you want to deposit?</label>
-                </div>
-                <div class="input-field col s12">
-                    <input id="deposit-password" type="password" class="validate">
-                    <label for="deposit-password">Account password.</label>
                 </div>
                 </div>
                 <div class="row">
@@ -52,21 +48,18 @@
                     <label for="deposit-email">Please enter your email for receipt.</label>
                 </div>
                 </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
             </form>
         </div>
     </div>
     <div id="withdrawal" class="col s12">
-        <h1 id="withdrawal">Withdrawal</h1>
+        <h1 id="withdrawal-title">Withdrawal</h1>
         <div class="row">
             <form class="col s12">
                 <div class="row">
                 <div class="input-field col s12">
                     <input placeholder="$1,000,000" id="withdrawal-amount" type="text">
                     <label for="withdrawal-amount">How much do you want to Withdraw?</label>
-                </div>
-                <div class="input-field col s12">
-                    <input id="withdrawal-password" type="password" class="validate">
-                    <label for="withdrawal-password">Account password.</label>
                 </div>
                 </div>
                 <div class="row">
@@ -75,6 +68,7 @@
                     <label for="withdrawal-email">Please enter your email for receipt.</label>
                 </div>
                 </div>
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
             </form>
         </div>
     </div>
@@ -88,7 +82,6 @@
     <script>
         var elem = document.querySelector('.tabs'); 
         var instance = M.Tabs.init(elem, {});
-
 
     </script>
 </body>
