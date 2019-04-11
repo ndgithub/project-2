@@ -7,6 +7,7 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="./styles/main-style.css">
     <title>Document</title>
 </head>
 <body>
@@ -17,12 +18,15 @@
         <li class="tab col s4"><a class="active" href="#home">Home</a></li>
         <li class="tab col s4"><a href="#deposit">Deposit</a></li>
         <li class="tab col s4"><a href="#withdrawal">Withdrawal</a></li>
-      </ul>
+    </ul>
     <div id="home" class="col s12">
+        <h3>Welcome, firstname lastname</h3>
+        <hr>
         <h3 id="account">Account Summary</h3>
         <div class="account-summary">
             Insert account summary here
         </div>
+        <hr>
         <h3 class="transaction">Transaction History</h3>
         <div class="transaction-history">
             Insert transaction history here
@@ -84,6 +88,8 @@
     <script>
         var elem = document.querySelector('.tabs'); 
         var instance = M.Tabs.init(elem, {});
+
+
     </script>
 </body>
 </html>
