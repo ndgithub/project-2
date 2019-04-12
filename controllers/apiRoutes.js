@@ -51,18 +51,25 @@ module.exports = function (app) {
   });
 
 
+<<<<<<< HEAD
 
   app.get("/api/budget", function (req, res) {
+=======
+  app.get("/api/budget", function(req, res) {
+>>>>>>> 65c5792178a9d0b4b975a8e88a809c89858b73f0
     console.log(req.params.id);
     db.Transaction.findAll().then(function (results) {
       res.json(results);
     });
   });
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 65c5792178a9d0b4b975a8e88a809c89858b73f0
   // post transactions
   app.post("/api/transactions", function (req, res) {
     console.log("req.body");
@@ -91,3 +98,29 @@ module.exports = function (app) {
   });
 };
 
+<<<<<<< HEAD
+=======
+  app.post("/auth", function (req, res) {
+    db.User.findAll(
+      {
+        where: {
+          username: req.body.username
+        }
+      }).then(function (results) {
+        var authObj = { authorized: null };
+        if (results.length === 0) {
+          authObj.authorized = false;
+          return res.json(authObj);
+        }
+        if (results[0].password === req.body.password) {
+          authObj.authorized = true;
+          return res.json(authObj);
+        } else {
+          authObj.authorized = false;
+          return res.json(authObj);
+        }
+      });
+  });
+
+
+>>>>>>> 65c5792178a9d0b4b975a8e88a809c89858b73f0
