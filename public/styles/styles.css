@@ -1,48 +1,64 @@
 .list-group-item {
   line-height: 2.5;
 }
-.middle-background {
 
+.middle-background {
   height: 605px;
   background: url("../images/middle-background.jpg");
 }
+
 .main-text {
   color: white;
 }
+
 .login-btn {
   border: 1px solid white!important;
 }
+
 .middle-row {
   margin-top: 5%!important;
 }
+
 .hidden {
   display: none;
 }
+
 .preloader-wrapper {
   margin-top: -65px;
   margin-bottom: 30px;
   margin-left: 70px;
 }
+
 .newsletter-preloader {
   margin-top: -1px;
   margin-bottom: 30px;
   margin-left: -5px;
 }
+
 .align {
   margin-left: 240px;
 }
+
 .account-created {
   background-color: #d4f7cc;
 }
+
 .close {
   margin-top: 30px;
 }
+
 #username, #password {
   color: white!important;
 }
+
 .nav-extended {
   background-color: rgb(92, 92, 92)!important;
 }
+
 .icon {
   font-size: 50px!important;
+}
+
+.login-error {
+  display: hidden;
 }

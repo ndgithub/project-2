@@ -51,25 +51,13 @@ module.exports = function (app) {
   });
 
 
-<<<<<<< HEAD
-
   app.get("/api/budget", function (req, res) {
-=======
-  app.get("/api/budget", function(req, res) {
->>>>>>> 65c5792178a9d0b4b975a8e88a809c89858b73f0
     console.log(req.params.id);
     db.Transaction.findAll().then(function (results) {
       res.json(results);
     });
   });
 
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> 65c5792178a9d0b4b975a8e88a809c89858b73f0
   // post transactions
   app.post("/api/transactions", function (req, res) {
     console.log("req.body");
@@ -91,16 +79,14 @@ module.exports = function (app) {
       email: req.body.email,
       username: req.body.username,
       password: req.body.password,
-      deposit: req.body.deposit
     }).then(function (results) {
       res.json(results);
     });
   });
-};
 
-<<<<<<< HEAD
-=======
+
   app.post("/auth", function (req, res) {
+    console.log('auth route');
     db.User.findAll(
       {
         where: {
@@ -122,5 +108,7 @@ module.exports = function (app) {
       });
   });
 
+};
 
->>>>>>> 65c5792178a9d0b4b975a8e88a809c89858b73f0
+
+
