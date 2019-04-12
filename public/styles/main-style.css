@@ -2,6 +2,28 @@
     width: 33%;
 }
 
+.header {
+    background-color: rgb(92, 92, 92);
+    height: 90px;
+    display: flex;
+}
+
+#name-link,
+#name-link:link,
+#name-link:visited
+ {
+    color: #fff;
+    margin: 0 auto;
+    padding: 0;
+    margin-top: 2.2rem;
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+#name-link:hover {
+    color: #f8f8f8;
+}
+
 #home,
 #deposit,
 #withdrawal  {
@@ -10,7 +32,7 @@
     margin-top: 3rem;
     padding: 2rem;
     border: 2px solid black;
-
+    box-shadow: 10px 10px 8px #888888;
 }
 
 .horizontal {
