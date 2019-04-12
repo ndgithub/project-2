@@ -78,15 +78,12 @@ module.exports = function (app) {
       lastName: req.body.lastName,
       email: req.body.email,
       username: req.body.username,
-      password: req.body.password,
+      password: req.body.password
     }).then(function (results) {
       res.json(results);
     });
   });
-
-
   app.post("/auth", function (req, res) {
-    console.log('auth route');
     db.User.findAll(
       {
         where: {
@@ -107,6 +104,9 @@ module.exports = function (app) {
         }
       });
   });
+};
+
+ 
 
 };
 

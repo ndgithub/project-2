@@ -60,5 +60,5 @@
 }
 
 .login-error {
-  display: hidden;
+  display: none;
 }
