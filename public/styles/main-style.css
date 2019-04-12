@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text');
+
 .tab {
     width: 33%;
 }
@@ -12,6 +14,7 @@
 #name-link:link,
 #name-link:visited
  {
+    font-family: 'Crimson Text', serif;
     color: #fff;
     margin: 0 auto;
     padding: 0;
@@ -83,4 +86,7 @@
 
 .account-summary{
     float:left
+.page-footer {
+    margin-top: 3rem;
+
 }

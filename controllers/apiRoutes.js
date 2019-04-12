@@ -77,12 +77,12 @@ module.exports = function(app) {
       lastName: req.body.lastName,
       email: req.body.email,
       username: req.body.username,
-      password: req.body.password,
-      deposit: req.body.deposit
+      password: req.body.password
     }).then(function(results) {
       res.json(results);
     });
   });
+
 
   app.get("/api/budget/:id", function(req, res) {
     console.log(req.params.id);
@@ -120,7 +120,31 @@ module.exports = function(app) {
 app.delete("/api/examples/:id", function(req, res) {
   db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
     res.json(dbExample);
+=======
+   app.post("/auth", function (req, res) {
+    db.User.findAll(
+      {
+        where: {
+          username: req.body.username
+        }
+      }).then(function (results) {
+        var authObj = { authorized: null };
+        if (results.length === 0) {
+          authObj.authorized = false;
+          return res.json(authObj);
+        }
+        if (results[0].password === req.body.password) {
+          authObj.authorized = true;
+          return res.json(authObj);
+        } else {
+          authObj.authorized = false;
+          return res.json(authObj);
+        }
+      });
+
   });
-});
 };
-*/
+
+ 
+
+
