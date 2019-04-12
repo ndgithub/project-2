@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./styles/styles.css">
@@ -78,15 +78,187 @@
     </div>
 
 
-
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
     <script>
-        var elem = document.querySelector('.tabs'); 
-        var instance = M.Tabs.init(elem, {});
+      var elem = document.querySelector(".tabs");
+      var instance = M.Tabs.init(elem, {});
+
+      var balance = 0;
+      var deposit = 0;
+      var withdrawl = 0;
+      var pendingCredit=0;
+      var pendingDebit=0;
+      var allTransactions;
+      //var id = localStorage.getItem("username");
+      var id = "Diwal";
+
+      $.get("/api/transactions/" + id, function(data) {
+        console.log("working");
+        console.log(data[0]);
+        for (var i = 0; i < data.length; i++) {
+          if (data[i].type === "Withdrawl") {
+            balance = balance - data[i].amount;
+          } else {
+            balance = balance + data[i].amount;
+          }
+        }
+        console.log(balance);
+        allTransactions=data;
+      }).then(function() {
+        var curentBalanceRow =
+          "<tr><td>Available Balance</td><td>" + balance + "</td></tr>";
+        $(".account-summary").append(curentBalanceRow);
+        
+        for(var i=0; i<allTransactions.length; i++){
+        var transactionsRow = "<tr><td>"+ allTransactions[i].createdAt.substring(0,10)+"</td><td>"+allTransactions[i].type +"</td><td>"+allTransactions[i].amount +"</td></tr>";
+        $("#transactions").append(transactionsRow);
+        }
+
+      });
+
+
+
+
+      $.get("/api/transaction-deposit/" + id, function(data) {
+        console.log("deposit data");
+        console.log(data[data.length-1]);
+
+        for(var i =0; i<data.length; i++){
+          deposit = deposit + data[i].amount;
+        }
+        console.log(deposit);
+        if(data.length>=1){
+        pendingCredit = data[data.length-1].amount;
+        }
+
+      }).then(function() {
+          var pendingCreditRow =
+          "<tr><td>Pending Credit</td><td>" + pendingCredit + "</td></tr>";
+        $(".account-summary").append(pendingCreditRow);
+
+          var withdrawlRow =
+          "<tr><td>Deposit</td><td>" +deposit + "</td></tr>";
+        $(".netBalance").append(withdrawlRow);
+       
+      });
+
+
+
+
+      $.get("/api/transaction-withdrawl/" + id, function(data) {
+     
+
+        for(var i =0; i<data.length; i++){
+          withdrawl = withdrawl + data[i].amount;
+        }
+        console.log(deposit);
+
+        if(data.length>=1){
+        pendingDebit = data[data.length-1].amount;
+        }
+
+      }).then(function() {
+          var pendingDebitRow =
+          "<tr><td>Pending Debit</td><td>" + pendingDebit + "</td></tr>";
+        $(".account-summary").append(pendingDebitRow);
+
+
+        var withdrawlRow =
+          "<tr><td>Withdrawl</td><td>" + withdrawl + "</td></tr>";
+        $(".netBalance").append(withdrawlRow);
+    
+      });
+
+
+
+      $("#deposit").on("click", function(e) {
+        e.preventDefault();
+        console.log("deposit buton is working");
+
+        var deposit = {
+          user_ID: localStorage.getItem("username"),
+          type: "deposit",
+          amount: $("#deposit-amount")
+            .val()
+            .trim(),
+          categories: ""
+        };
+
+        $.ajax("/api/transactions", {
+          type: "POST",
+          data: deposit
+        }).then(function() {
+          console.log("new deposit transaction added");
+          location.reload();
+        });
+      });
+
+
+
+
+
+
+      $.get("/api/budget", function(data) {
+        var categories = [];
+        var values = [];
+        for (var i= 0; i<data.length; i++){
+           categories.push(data[i].categories);
+          values.push(data[i].amount)
+        }
+        createChart("pie", categories, values);
+
+      });
+
+
+      function createChart (chartType, lablesInput, valuesInput){
+        var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: chartType,
+    data: {
+        labels: lablesInput,
+        datasets: [{
+            label: 'Budget',
+            data: valuesInput,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+
+      }
+
+
 
     </script>
-</body>
+  </body>
 </html>
