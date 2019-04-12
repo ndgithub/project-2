@@ -56,6 +56,18 @@ module.exports = function (app) {
   });
 }
 
+app.get("/api/budget", function(req, res) {
+  console.log(req.params.id);
+
+  db.Transaction.findAll({
+    attributes: [[sequelize.fn('SUM', sequelize.col('amount')), 'amount'],['FORMAT( total', 'FORMAT( total']],
+    where: {[Op.and]: [{id: {[Op.eq]: re.params.id}}, {type: {[Op.eq]: 'withdrawl'}},]},
+    group: ['categories'],
+    }).then(function(results) {
+    res.json(results);
+  });
+});
+
 
 /*
 // Delete an example by id
