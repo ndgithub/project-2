@@ -95,8 +95,8 @@
       var pendingCredit=0;
       var pendingDebit=0;
       var allTransactions;
-      //var id = localStorage.getItem("username");
-      var id = "Diwal";
+      var id = localStorage.getItem("username");
+      
 
       $.get("/api/transactions/" + id, function(data) {
         console.log("working");
@@ -201,19 +201,53 @@
 
 
 
+      $("#withdrawal").on("click", function(e) {
+       e.preventDefault();
+       console.log("withdraw button is working");
+
+       var withdrawl = {
+         user_ID: localStorage.getItem("username"),
+         type: "Withdrawal",
+         amount: $("#withdrawal-amount")
+           .val()
+           .trim(),
+         categories: ""
+       };
+
+       $.ajax("/api/transactions", {
+         type: "POST",
+         data: withdrawl
+       }).then(function() {
+         console.log("new withdrawal added");
+         location.reload();
+       });
+     });
+
+
+  //     app.get("/api/budget", function(req, res) {
+  // console.log(req.params.id);
+
+  // db.Transaction.findAll({
+  //   attributes: [[sequelize.fn('SUM', sequelize.col('amount')), 'amount'],['FORMAT( total', 'FORMAT( total']],
+  //   where: {[Op.and]: [{id: {[Op.eq]: re.params.id}}, {type: {[Op.eq]: 'withdrawl'}},]},
+  //   group: ['categories'],
+  //   }).then(function(results) {
+  //   res.json(results);
+  // });
+  //   });
 
 
 
-      $.get("/api/budget", function(data) {
-        var categories = [];
-        var values = [];
-        for (var i= 0; i<data.length; i++){
-           categories.push(data[i].categories);
-          values.push(data[i].amount)
-        }
-        createChart("pie", categories, values);
+      // $.get("/api/budget", function(data) {
+      //   var categories = [];
+      //   var values = [];
+      //   for (var i= 0; i<data.length; i++){
+      //      categories.push(data[i].categories);
+      //     values.push(data[i].amount)
+      //   }
+      //   createChart("pie", categories, values);
 
-      });
+      // });
 
 
       function createChart (chartType, lablesInput, valuesInput){
