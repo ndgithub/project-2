@@ -49,11 +49,9 @@
 .icon {
   font-size: 40px!important;
 }
-/*Main html CSS */
 
-.header {
-  background-color: #b0bec5;
-  height: 120px;
+.login-error {
+  display: none;
 }
 
 #name {
