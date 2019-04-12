@@ -10,13 +10,12 @@
     <title>Bank</title>
 </head>
 <body>
-
     <nav class="nav-extended z-depth-5">
         <div class="nav-wrapper">
             <a href="#" class="center brand-logo logo">Bootcamp Bank</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="#"><i class="icon material-icons">account_balance</i></a></li>
-            <li><a href="#"></a></li>
+            <li><a href="#"><i class="icon material-icons center">business_center</i></a></li>
+            <li><a href="#"><i class="icon material-icons right">account_balance</i></a></li>
             <li><a href="#"></a></li>
             </ul>
         </div>
@@ -35,7 +34,8 @@
                         <input placeholder="Password" id="password" type="password" class="validate">
                         <label for="password"></label>
                     </div>
-                    <button class="btn-flat blue-grey darken-1 login-btn" id="login" type="submit">Login</button>
+                    <button class="btn-flat blue-grey darken-1 login-btn" type="submit">Login</button>
+                    <div class=“login-error”>Sorry, we could not find that account. Please try again. </div>
                 </form>
             </div>
                 <div class="card-action">
@@ -48,21 +48,19 @@
             <p class="flow-text">Bootcamp Bank Advantage Banking helps you stay in sync with your needs today and tomorrow.
             </p>
         </div>
-
-      </div>
-
+        
     </div>
     <div class="row">
-      <div class="col s6 m3">
-        <div class="z-depth-5 card light-blue darken-3">
-          <div class="card-action">
-            <a href="#" class="modal-trigger" data-target="modal-locations"><i
-                class="material-icons left">location_on</i>Find your closest finacial center or ATM</a>
+            <div class="col s6 m3">
+              <div class="z-depth-5 card light-blue darken-3">
+                <div class="card-action">
+                  <a href="#" class="modal-trigger" data-target="modal-locations"><i class="material-icons left">location_on</i>Find your closest finacial center or ATM</a>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+
 
     <!-- Sign Up Modal-->
     <div id="modal-signup" class="modal">
@@ -70,6 +68,7 @@
                 <h4 class="center-align text-darken-3 modal-header">Create your Account</h4><br/>
                 <div class="account-created hidden center-align">
                     <h4 class="center-align text-darken-3 account-created">Your Account Has Been Created!</h4><br>
+
                     <h5 class="center-align account-login-modal">Login To View Account</h5>
                     <a href="#!" class="modal-close"><button class="close btn-small waves-effect waves-light blue-grey darken-1" type="submit" name="action">Close</button></a>
                 </div>
@@ -96,13 +95,13 @@
                             </div>
                             <div class="row">
                                     <div class="input-field col s12">
-                                      <input id="username" type="text" class="validate">
+                                      <input id="username-add" type="text" class="validate">
                                       <label for="username">Username</label>
                                     </div>
                                 </div>
                           <div class="row">
                             <div class="input-field col s12">
-                              <input id="password" type="password" class="validate">
+                              <input id="password-add" type="password" class="validate">
                               <label for="password">Password</label>
                             </div>
                           </div>
@@ -132,6 +131,7 @@
                     </div>
                   </div>
         </div>
+
             <!-- Location Modal-->
     <div id="modal-locations" class="modal">
             <div class="modal-content center-align">
@@ -169,40 +169,14 @@
                           </div>
                         </div>
                       </div>
-    </div>
-  </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+
+            </div>
+        </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
     integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-  <script src="js/index.js" type="text/javascript"></script>
+    <script src="js/index.js" type="text/javascript"></script>
 
-  <script>
-    $("#submit").on("click", function () {
-      $.ajax({
-        type: "POST",
-        url: "index.html",
-        data: {
-          firstName: $("#first_name").val().trim(),
-          lastName: $("#last_name").val().trim(),
-          email: $("#email").val().trim(),
-          username: $("#username").val().trim(),
-          password: $("#password").val().trim(),
-          deposit: $("#deposit").val().trim()
-        },
-        success: success,
-        dataType: dataType
-      });
-    });
-
-    $("#login").on("click", function() {
-      localStorage.setItem("username", $("#username").val().trim());
-      $.get("/auth", {
-        username: $("#username").val().trim(), 
-        password: $("#password").val().trim()
-      });
-    });
-    </script>
 </body>
-
 </html>
-
