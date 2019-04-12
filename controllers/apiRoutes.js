@@ -78,8 +78,7 @@ module.exports = function(app) {
       lastName: req.body.lastName,
       email: req.body.email,
       username: req.body.username,
-      password: req.body.password,
-      deposit: req.body.deposit
+      password: req.body.password
     }).then(function(results) {
       res.json(results);
     });
