@@ -46,3 +46,7 @@
 .icon {
   font-size: 50px!important;
 }
+
+.login-error {
+  display: none;
+}
