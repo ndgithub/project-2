@@ -84,9 +84,7 @@ module.exports = function(app) {
       res.json(results);
     });
   });
-};
-
-  app.post("/auth", function (req, res) {
+   app.post("/auth", function (req, res) {
     db.User.findAll(
       {
         where: {
@@ -107,5 +105,8 @@ module.exports = function(app) {
         }
       });
   });
+};
+
+ 
 
 
