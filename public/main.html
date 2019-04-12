@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/main-style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
     <title>Home Page</title>
 </head>
 <body>
@@ -21,17 +22,41 @@
         <li class="tab col s4" ><a href="#withdrawal">Withdrawal</a></li>
     </ul>
     <div id="home" class="col s12">
+     
         <h3 id="welcome">Welcome, firstname lastname</h3>
-        <hr class="horizontal">
-        <h3 id="account">Account Summary</h3>
-        <div class="account-summary">
-            Insert account summary here
+      <hr class="horizontal"><h3 id="account">Account Summary</h3>
+          <div class="account-main" style="border: solid 1px green">
+        
+        <div class ="account-summary" style="border: solid 1px green"><strong>  
+          Account balance</strong>
         </div>
-        <hr class="horizontal">
+        <div class="netBalance" style="border: solid 1px green"><strong>  
+            Net Balance</strong>
+        </div>
+      </div>    
+      <hr class="horizontal">
         <h3 class="transaction">Transaction History</h3>
         <div class="transaction-history">
             Insert transaction history here
+            <table>
+              <tr>
+                <th>Date</th>
+                <th>Transactions</th> 
+                <th>Amount</th>
+              </tr>
+              <tbody id="transactions"></tbody>
+            </table>
         </div>
+          <hr>
+      <div id="chartDiv"><h4>See how are you spending compared to all our user</h4>
+            <br>
+        <div id="pie-my"><strong> My Expenses</strong>
+          <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+        <div id="pie-other"> <strong> Other Expenses</strong>
+          <canvas id="otherChart" width="400" height="400"></canvas>
+        </div>
+      </div>  
     </div>
     <div id="deposit" class="col s12">
         <div class="row">
@@ -74,6 +99,10 @@
         </div>
     </div>
 
+    <div class="footer">
+        
+    </div>
+=======
     <footer class="page-footer grey">
             <div class="container">
               <div class="row">
@@ -102,6 +131,7 @@
           </footer>
 
 
+
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script
@@ -120,6 +150,9 @@
       var pendingDebit=0;
       var allTransactions;
       var id = localStorage.getItem("username");
+      //var id = "Diwal";
+
+      $("#welcome").text("Welcome "+ id)
       
 
       $.get("/api/transactions/" + id, function(data) {
@@ -248,34 +281,37 @@
      });
 
 
-  //     app.get("/api/budget", function(req, res) {
-  // console.log(req.params.id);
-
-  // db.Transaction.findAll({
-  //   attributes: [[sequelize.fn('SUM', sequelize.col('amount')), 'amount'],['FORMAT( total', 'FORMAT( total']],
-  //   where: {[Op.and]: [{id: {[Op.eq]: re.params.id}}, {type: {[Op.eq]: 'withdrawl'}},]},
-  //   group: ['categories'],
-  //   }).then(function(results) {
-  //   res.json(results);
-  // });
-  //   });
+    
 
 
 
-      // $.get("/api/budget", function(data) {
-      //   var categories = [];
-      //   var values = [];
-      //   for (var i= 0; i<data.length; i++){
-      //      categories.push(data[i].categories);
-      //     values.push(data[i].amount)
-      //   }
-      //   createChart("pie", categories, values);
+  // select categories, sum(amount) from transactions where user_ID = "Diwal" and type="Withdrawl" group by categories;
 
-      // });
+      $.get("/api/budget/"+ id, function(data) {
+        var categories = [];
+        var values = [];
+        for (var i= 0; i<data.length; i++){
+           categories.push(data[i].categories);
+          values.push(data[i].amount)
+        }
+        createChart("myChart","pie", categories, values);
+
+      });
+
+      $.get("/api/budget-other", function(data) {
+        var categories = [];
+        var values = [];
+        for (var i= 0; i<data.length; i++){
+           categories.push(data[i].categories);
+          values.push(data[i].amount)
+        }
+        createChart("otherChart","pie", categories, values);
+
+      });
 
 
-      function createChart (chartType, lablesInput, valuesInput){
-        var ctx = document.getElementById('myChart').getContext('2d');
+      function createChart (chartID, chartType, lablesInput, valuesInput){
+        var ctx = document.getElementById(chartID).getContext('2d');
 var myChart = new Chart(ctx, {
     type: chartType,
     data: {
