@@ -29,11 +29,13 @@ module.exports = function(app) {
     console.log(req.params.id);
     db.Transaction.findAll({
       where: {
-        type: "Withdrawl",
+        type: "Withdrawal",
         user_ID: req.params.id
       }
+      
     }).then(function(results) {
       res.json(results);
+      
     });
   });
 

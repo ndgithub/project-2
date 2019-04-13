@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="./styles/styles.css">
     <link rel="stylesheet" href="./styles/main-style.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
+    
+    
     <title>Home Page</title>
 </head>
 <body>
@@ -22,14 +24,14 @@
     </ul>
     <div id="home" class="col s12">
      
-        <h3 id="welcome">Welcome, firstname lastname</h3>
+        <h3 id="welcome"></h3>
       <hr class="horizontal"><h3 id="account">Account Summary</h3>
-          <div class="account-main" style="border: solid 1px green">
+          <div class="account-main" style="border: solid 1px black">
         
-        <div class ="account-summary" style="border: solid 1px green"><strong>  
+        <div class ="account-summary" style="border: solid 1px black"><strong>  
           Account balance</strong>
         </div>
-        <div class="netBalance" style="border: solid 1px green"><strong>  
+        <div class="netBalance" style="border: solid 1px black"><strong>  
             Net Balance</strong>
         </div>
       </div>    
@@ -73,7 +75,7 @@
                     <label for="deposit-email">Please enter your email for receipt.</label>
                 </div>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+                <button class="btn waves-effect waves-light" id="depositMoney" type="submit" name="action">Submit</button>
             </form>
         </div>
     </div>
@@ -86,6 +88,44 @@
                     <input placeholder="$1,000,000" id="withdrawal-amount" type="text">
                     <label for="withdrawal-amount">How much do you want to Withdraw?</label>
                 </div>
+               
+                <form name="expense">
+                  
+                  <label for="withdrawal-amount">Please specify the reason for withdraw.</label>
+                  <p>
+                    <label>
+                      <input name="category" type="radio" class="category" value="Grocery"  />
+                      <span>Grocery</span>
+                    </label>
+                    <label>
+                      <input name="category" type="radio" class="category" value="Clothing"  />
+                      <span>Clothing</span>
+                    </label>
+                    <label>
+                      <input name="category" type="radio" class="category" value="Rent"  />
+                      <span>Rent</span>
+                    </label>
+                    <label>
+                      <input name="category" type="radio" class="category" value="Entertainment"  />
+                      <span>Entertainment</span>
+                    </label>
+                    <label>
+                      <input name="category" type="radio" class="category" value="Travel"  />
+                      <span>Travel</span>
+                    </label>
+                    <label>
+                      <input name="category" type="radio" class="category" value="Insurance" />
+                      <span>Insurance</span>
+                    </label>
+                    <label>
+                      <input name="category" type="radio" class="category" value="Misc" />
+                      <span>Misc</span>
+                    </label>
+                  </p>
+                </form>
+               
+               
+
                 </div>
                 <div class="row">
                 <div class="input-field col s12">
@@ -93,8 +133,12 @@
                     <label for="withdrawal-email">Please enter your email for receipt.</label>
                 </div>
                 </div>
-                <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+
+                <button class="btn waves-effect waves-light" id="withdrawMoney" type="submit" name="action">Submit</button>
             </form>
+
+            
+
         </div>
     </div>
 
@@ -120,21 +164,23 @@
 
       var balance = 0;
       var deposit = 0;
-      var withdrawl = 0;
+      var withdrawl = 200;
       var pendingCredit=0;
       var pendingDebit=0;
       var allTransactions;
-      var id = localStorage.getItem("username");
-      //var id = "Diwal";
+      //var id = localStorage.getItem("username");
+      var id = "Diwal";
 
-      $("#welcome").text("Welcome "+ id)
+      $("#welcome").text("Welcome "+ id);
+
+      
       
 
       $.get("/api/transactions/" + id, function(data) {
-        console.log("working");
+        
         console.log(data[0]);
         for (var i = 0; i < data.length; i++) {
-          if (data[i].type === "Withdrawl") {
+          if (data[i].type === "Withdrawal") {
             balance = balance - data[i].amount;
           } else {
             balance = balance + data[i].amount;
@@ -189,7 +235,7 @@
         for(var i =0; i<data.length; i++){
           withdrawl = withdrawl + data[i].amount;
         }
-        console.log(deposit);
+       
 
         if(data.length>=1){
         pendingDebit = data[data.length-1].amount;
@@ -209,13 +255,13 @@
 
 
 
-      $("#deposit").on("click", function(e) {
+      $("#depositMoney").on("click", function(e) {
         e.preventDefault();
         console.log("deposit buton is working");
 
         var deposit = {
-          user_ID: localStorage.getItem("username"),
-          type: "deposit",
+          user_ID: id,
+          type: "Deposit",
           amount: $("#deposit-amount")
             .val()
             .trim(),
@@ -233,17 +279,22 @@
 
 
 
-      $("#withdrawal").on("click", function(e) {
+      $("#withdrawMoney").on("click", function(e) {
        e.preventDefault();
        console.log("withdraw button is working");
 
+       var category = $('input[type="radio"]:checked').val();
+
+      
+      
        var withdrawl = {
-         user_ID: localStorage.getItem("username"),
-         type: "Withdrawal",
+        user_ID: id,
+       
+        type: "Withdrawal",
          amount: $("#withdrawal-amount")
            .val()
            .trim(),
-         categories: ""
+         categories: category
        };
 
        $.ajax("/api/transactions", {

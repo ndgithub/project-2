@@ -84,3 +84,18 @@
 .account-summary{
     float:left
 }
+
+.account-main {
+ display: flex;
+ text-align: center;
+}
+
+
+.account-summary {
+ float: left;
+ width: 50%;
+}
+.netBalance {
+ float: left;
+ width: 50%;
+}
