@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "root",
+=======
+    "password": null,
+>>>>>>> d159c3c810e21c2595d48c18eebb4b768e82c7c1
     "database": "bank_db",
     "host": "localhost",
     "dialect": "mysql",
