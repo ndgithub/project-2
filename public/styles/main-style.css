@@ -61,6 +61,32 @@
     background-color:#000;
 } /*Color of underline*/
 
+#pie-my{
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+   
+}
+
+#pie-other{
+    height: 200px;
+    width: 200px;
+    display: inline-block;
+    margin-left: 250px;   
+}
+
+#chartDiv{
+    text-align: center;
+}
+
+.account-main{
+    display: flex;
+    
+}
+
+.account-summary{
+    float:left
 .page-footer {
     margin-top: 3rem;
+
 }
