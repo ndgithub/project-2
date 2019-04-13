@@ -1,17 +1,32 @@
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text');
+
 .tab {
     width: 33%;
 }
 
 .header {
     background-color: rgb(92, 92, 92);
-    height: 90px;
+    height: 170px;
     display: flex;
+    justify-content: center;
 }
+
+.logo{
+    justify-content: center;
+}
+
+#logout {
+    position: absolute;
+    right: 1rem;
+    margin-top: 1rem;
+}
+
 
 #name-link,
 #name-link:link,
 #name-link:visited
  {
+    font-family: 'Crimson Text', serif;
     color: #fff;
     margin: 0 auto;
     padding: 0;
@@ -98,4 +113,8 @@
 .netBalance {
  float: left;
  width: 50%;
+}
+.page-footer {
+    margin-top: 3rem;
+
 }
