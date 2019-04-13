@@ -109,11 +109,6 @@ module.exports = function (app) {
 
   });
   
-
-  /*
-  app.post("/auth", function (req, res) {
-
-
   app.get("/api/budget/:id", function(req, res) {
     console.log(req.params.id);
     let sequelize = db.sequelize;
@@ -141,22 +136,13 @@ module.exports = function (app) {
       res.json(results);
     });
   });
-};
-*/
+  
+  
+  
+}
 
 
 
-/*
-// Delete an example by id
-app.delete("/api/examples/:id", function(req, res) {
-  db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
-    res.json(dbExample);
-
-
-};
-
-
- */
 
 
 
