@@ -6,9 +6,21 @@
 
 .header {
     background-color: rgb(92, 92, 92);
-    height: 90px;
+    height: 170px;
     display: flex;
+    justify-content: center;
 }
+
+.logo{
+    justify-content: center;
+}
+
+#logout {
+    position: absolute;
+    right: 1rem;
+    margin-top: 1rem;
+}
+
 
 #name-link,
 #name-link:link,
@@ -86,6 +98,7 @@
 
 .account-summary{
     float:left
+}
 .page-footer {
     margin-top: 3rem;
 
