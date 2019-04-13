@@ -1,51 +1,68 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+.middle-background {
+  height: 605px;
+}
+
 .middle-background {
   background: url("../images/middle-background.jpg");
   background-size: cover;
   background-position: center;
   height: 735px;
 }
+
 .main-text {
   color: white;
 }
+
 .login-btn {
   border: 1px solid white!important;
 }
+
 .middle-row {
   margin-top: 5%!important;
 }
+
 .hidden {
   display: none;
 }
+
 .preloader-wrapper {
   margin-top: -65px;
   margin-bottom: 30px;
   margin-left: 70px;
 }
+
 .newsletter-preloader {
   margin-top: -1px;
   margin-bottom: 30px;
   margin-left: -5px;
 }
+
 .align {
   margin-left: 240px;
 }
+
 .account-created {
   background-color: #d4f7cc;
 }
+
 .close {
   margin-top: 30px;
 }
+
 #username, #password {
   color: white!important;
 }
+
 .nav-extended {
   background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4));
   height: 120px!important;
   border-bottom: white 1px solid;
 }
+
 .icon {
   font-size: 40px!important;
 }
@@ -61,39 +78,45 @@
   padding-left: 1rem;
   color: #fff;
 }
+
 .login-error {
   display: none;
- }
- #filler {
-   width: 100px;
- }
- .logo {
+}
+
+#filler {
+  width: 100px;
+}
+
+.logo {
   margin-top: -15px;
- }
- #login-modal-btn, #account-modal-btn {
-   margin-top: 40px!important;
-   padding: 0.3em 1.2em;
-   padding-bottom: 40px;
-   margin: 0 0.3em 0.3em 0;
-   border-radius: 2em;
-   box-sizing: border-box;
-   text-decoration: none;
-   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-   font-weight: 300;
-   text-align: center;
-   transition: all 0.2s;
- }
- #login-modal-btn {
-   width: 100px;
-   height: 40px;
-   color: white;
-   margin-right: 30px;
-   border: rgb(255, 255, 255) 2px solid;
- }
- #account-modal-btn {
-   width: 100px;
-   height: 40px;
-   background-color: white;
-   color: black;
-   border: black 2px solid;
- }
+}
+
+#login-modal-btn, #account-modal-btn {
+  margin-top: 40px!important;
+  padding: 0.3em 1.2em;
+  padding-bottom: 40px;
+  margin: 0 0.3em 0.3em 0;
+  border-radius: 2em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 300;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+#login-modal-btn {
+  width: 100px;
+  height: 40px;
+  color: white;
+  margin-right: 30px;
+  border: rgb(255, 255, 255) 2px solid;
+}
+
+#account-modal-btn {
+  width: 100px;
+  height: 40px;
+  background-color: white;
+  color: black;
+  border: black 2px solid;
+}
