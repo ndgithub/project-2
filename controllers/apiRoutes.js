@@ -84,8 +84,8 @@ module.exports = function (app) {
       res.json(results);
     });
   });
-  
-     app.post("/auth", function (req, res) {
+
+  app.post("/auth", function (req, res) {
 
     db.User.findAll(
       {
@@ -108,41 +108,40 @@ module.exports = function (app) {
       });
 
   });
-  
-
-  /*
-  app.post("/auth", function (req, res) {
 
 
-  app.get("/api/budget/:id", function(req, res) {
+
+
+  app.get("/api/budget/:id", function (req, res) {
     console.log(req.params.id);
     let sequelize = db.sequelize;
     let Op = db.Sequelize.Op;
 
     db.Transaction.findAll({
-    attributes: [[sequelize.fn('SUM', sequelize.col('amount')), 'amount'],['categories', 'categories']],
-    where: {[Op.and]: [{user_ID: {[Op.eq]: req.params.id}}, {type: {[Op.eq]: "Withdrawal"}}]},
-    group: ['categories'],
-    }).then(function(results) {
+      attributes: [[sequelize.fn('SUM', sequelize.col('amount')), 'amount'], ['categories', 'categories']],
+      where: { [Op.and]: [{ user_ID: { [Op.eq]: req.params.id } }, { type: { [Op.eq]: "Withdrawal" } }] },
+      group: ['categories'],
+    }).then(function (results) {
       res.json(results);
     });
   });
 
-  app.get("/api/budget-other", function(req, res) {
+  app.get("/api/budget-other", function (req, res) {
     console.log(req.params.id);
     let sequelize = db.sequelize;
     let Op = db.Sequelize.Op;
 
     db.Transaction.findAll({
-    attributes: [[sequelize.fn('SUM', sequelize.col('amount')), 'amount'],['categories', 'categories']],
-    where: {[Op.and]: [{type: {[Op.eq]: "Withdrawal"}}]},
-    group: ['categories'],
-    }).then(function(results) {
+      attributes: [[sequelize.fn('SUM', sequelize.col('amount')), 'amount'], ['categories', 'categories']],
+      where: { [Op.and]: [{ type: { [Op.eq]: "Withdrawal" } }] },
+      group: ['categories'],
+    }).then(function (results) {
       res.json(results);
     });
   });
-};
-*/
+
+}
+
 
 
 
