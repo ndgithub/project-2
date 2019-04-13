@@ -80,6 +80,7 @@ $(".login-btn").on("click", function (event) {
       "password": $("#password").val().trim(),
     },
     function (data, textStatus, jqXHR) {
+      console.log('1');
       var data = JSON.parse(data);
       if (data.authorized === true) {
         console.log('let them in');
